@@ -12,13 +12,13 @@ import javax.persistence.Table;
 public class Film {
 	
 	@Id
-	@Column(name = "Film ID")
+	@Column(name = "Film_ID")
 	private long filmId;
 	
 	@Column(name = "Year")
 	private long year;
 	
-	@Column(name = "Rental Duration")
+	@Column(name = "Rental_Duration")
 	private long rentDuration;
 	
 	@Column(name = "Length")
@@ -33,13 +33,13 @@ public class Film {
 	@Column(name = "Rating")
 	private String rating;
 	
-	@Column(name = "Special Features")
+	@Column(name = "Special_Features")
 	private String features;
 	
-	@Column(name = "Rental Rate")
+	@Column(name = "Rental_Rate")
 	private BigDecimal rate;
 	
-	@Column(name = "Replacement Cost")
+	@Column(name = "Replacement_Cost")
 	private BigDecimal replaceCost;
 	
 	public long getFilmId() {

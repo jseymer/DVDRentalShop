@@ -6,29 +6,21 @@ import javax.persistence.Id;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Film_Category")
-public class FilmCategory {
-
-	@Id
-	@Column(name = "Film_ID")
-	private long filmID;
+@Table(name = "Category")
+public class Category {
 	
+	@Id
 	@Column(name = "Category_ID")
 	private long categoryID;
-
-	public FilmCategory(long filmID, long categoryID) {
-		this.setFilmID(filmID);
+	
+	@Column(name = "Name")
+	private String name;
+	
+	public Category(long categoryID, String name) {
 		this.setCategoryID(categoryID);
+		this.setName(name);
 	}
 	
-	public long getFilmID() {
-		return filmID;
-	}
-
-	public void setFilmID(long filmID) {
-		this.filmID = filmID;
-	}
-
 	public long getCategoryID() {
 		return categoryID;
 	}
@@ -36,5 +28,15 @@ public class FilmCategory {
 	public void setCategoryID(long categoryID) {
 		this.categoryID = categoryID;
 	}
+
+	public String getName() {
+		return name;
+	}
+
+	public void setName(String name) {
+		this.name = name;
+	}
+
+
 
 }
