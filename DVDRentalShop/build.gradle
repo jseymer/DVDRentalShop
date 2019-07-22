@@ -35,7 +35,7 @@ dependencies {
     testCompile "org.mockito:mockito-core:2.1.0"
     
     //Oracle JDBC driver in Gradle project
-    //compile files('libs/ojdbc7.jar')
+    compile files('ojdbc7.jar')
     
     //Do we need JPA?
      
