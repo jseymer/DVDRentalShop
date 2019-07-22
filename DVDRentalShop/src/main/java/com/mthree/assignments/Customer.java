@@ -11,15 +11,21 @@ import javax.persistence.Table;
 @Table(name = "Customer")
 public class Customer {
 	@Id
-	@Column
+	@Column(name = "customer_id")
 	private int customerId;
-	@Column
-	private int storeId, addressId;
-	@Column
-	private String fName, lName, email;
-	@Column
+	@Column(name = "store_id")
+	private int storeId;
+	@Column(name = "first_name")
+	private String fName;
+	@Column(name = "last_name")
+	private String lName;
+	@Column(name = "address_id")
+	private int addressId;
+	@Column(name = "email")
+	private String email;
+	@Column(name = "active")
 	private boolean active;
-	@Column
+	@Column(name = "create_date")
 	private Date startDate;
 	
 	
