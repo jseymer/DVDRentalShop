@@ -1,5 +1,4 @@
 package com.mthree.assignments;
-import java.sql.Timestamp;
 
 public class Staff {
 	private long staffId;
@@ -11,7 +10,6 @@ public class Staff {
 	private long active;
 	private String username;
 	private String password;
-	private Timestamp lastUpdate;
 	
 	public long getStaffId() {
 		return staffId;
@@ -66,12 +64,6 @@ public class Staff {
 	}
 	public void setPassword(String password) {
 		this.password = password;
-	}
-	public Timestamp getLastUpdate() {
-		return lastUpdate;
-	}
-	public void setLastUpdate(Timestamp lastUpdate) {
-		this.lastUpdate = lastUpdate;
 	}
 
 }

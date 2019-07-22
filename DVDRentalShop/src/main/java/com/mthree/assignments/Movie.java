@@ -1,14 +1,12 @@
 package com.mthree.assignments;
 
 import java.math.BigDecimal;
-import java.util.Date;
 
 public class Movie {
 	
 	private int filmId, year, rentDuration, length;
 	private String title, discription, rating, features;
 	private BigDecimal rate, replaceCost;
-	private Date lastUpdate;
 	
 	public int getFilmId() {
 		return filmId;
@@ -69,12 +67,6 @@ public class Movie {
 	}
 	public void setReplaceCost(BigDecimal replaceCost) {
 		this.replaceCost = replaceCost;
-	}
-	public Date getLastUpdate() {
-		return lastUpdate;
-	}
-	public void setLastUpdate(Date lastUpdate) {
-		this.lastUpdate = lastUpdate;
 	}
 	
 }
