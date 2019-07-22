@@ -3,7 +3,9 @@ package com.mthree.assignments;
 
 public class Inventory {
 	
-	private long inventoryID, filmID, storeID;
+	private long inventoryID;
+	private long filmID;
+	private long storeID;
 	
 	public Inventory(long inventoryID, long filmID, long storeID) {
 		this.setInventoryID(inventoryID);
