@@ -1,9 +1,22 @@
 package com.mthree.assignments;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Store")
 public class Store {
 	
+	@Id
+	@Column
 	private long storeID;
+	
+	@Column
 	private long managerStaffID;
+	
+	@Column
 	private long addressID;
 	
 	public Store(long storeID, long managerStaffID, long addressID) {
