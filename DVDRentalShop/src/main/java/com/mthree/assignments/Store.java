@@ -10,13 +10,13 @@ import javax.persistence.Table;
 public class Store {
 	
 	@Id
-	@Column
+	@Column(name = "Store_ID")
 	private long storeID;
 	
-	@Column
+	@Column(name = "Manager_Staff_ID")
 	private long managerStaffID;
 	
-	@Column
+	@Column(name = "Address_ID")
 	private long addressID;
 	
 	public Store(long storeID, long managerStaffID, long addressID) {
