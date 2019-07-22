@@ -1,10 +1,22 @@
 package com.mthree.assignments;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
 
+@Entity
+@Table(name = "Inventory")
 public class Inventory {
 	
+	@Id
+	@Column(name = "Inventory_ID")
 	private long inventoryID;
+	
+	@Column(name = "Film_ID")
 	private long filmID;
+	
+	@Column(name = "Store_ID")
 	private long storeID;
 	
 	public Inventory(long inventoryID, long filmID, long storeID) {
