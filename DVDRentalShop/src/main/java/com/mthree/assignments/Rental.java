@@ -11,6 +11,23 @@ public class Rental {
 	private long staffId;
 	private Timestamp lastUpdate;
 	
+	public Rental(long rentalId, Timestamp rentalDate, long inventoryId, long customerId, Timestamp returnDate,
+			long staffId, Timestamp lastUpdate) {
+		super();
+		this.rentalId = rentalId;
+		this.rentalDate = rentalDate;
+		this.inventoryId = inventoryId;
+		this.customerId = customerId;
+		this.returnDate = returnDate;
+		this.staffId = staffId;
+		this.lastUpdate = lastUpdate;
+	}
+	
+	public Rental(long rentalId) {
+		super();
+		this.rentalId = rentalId;
+	}
+	
 	public long getRentalId() {
 		return rentalId;
 	}
@@ -52,6 +69,12 @@ public class Rental {
 	}
 	public void setLastUpdate(Timestamp lastUpdate) {
 		this.lastUpdate = lastUpdate;
+	}
+	@Override
+	public String toString() {
+		return "Rental [rentalId=" + rentalId + ", rentalDate=" + rentalDate + ", inventoryId=" + inventoryId
+				+ ", customerId=" + customerId + ", returnDate=" + returnDate + ", staffId=" + staffId + ", lastUpdate="
+				+ lastUpdate + "]";
 	}
 
 }
