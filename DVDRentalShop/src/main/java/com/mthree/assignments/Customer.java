@@ -2,10 +2,24 @@ package com.mthree.assignments;
 
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Customer")
 public class Customer {
-	private int customerId, storeId, addressId;
+	@Id
+	@Column
+	private int customerId;
+	@Column
+	private int storeId, addressId;
+	@Column
 	private String fName, lName, email;
+	@Column
 	private boolean active;
+	@Column
 	private Date startDate;
 	
 	
