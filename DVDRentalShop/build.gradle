@@ -23,7 +23,16 @@ dependencies {
     // This dependency is used internally, and not exposed to consumers on their own compile classpath.
     implementation 'com.google.guava:guava:23.0'
 
-    // Use JUnit test framework
-    testImplementation 'junit:junit:4.12'
+    // Use JUnit test framework    
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.3.1'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.3.1'
+    //Mockito
+    testCompile "org.mockito:mockito-core:2.1.0"
+    
+    //Oracle JDBC driver in Gradle project
+    //compile files('libs/ojdbc7.jar')
+    
+    //Do we need JPA?
+     
 }
 
