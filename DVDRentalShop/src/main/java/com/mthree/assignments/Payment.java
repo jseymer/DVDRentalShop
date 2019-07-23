@@ -3,13 +3,39 @@ package com.mthree.assignments;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Payment")
 public class Payment {
 
-	private int payId, custId, staffId, rentId;
+	@Id
+	@Column(name = "payment_id")
+	private int payId;
+	@Column(name = "customer_id")
+	private int custId;
+	@Column(name = "staff_id")
+	private int staffId;
+	@Column(name = "rental_id")
+	private int rentId;
+	@Column(name = "amount")
 	private BigDecimal amount;
+	@Column(name = "payment_date")
 	private Date payDate;
 	
 	
+	public Payment(int payId, int custId, int staffId, int rentId, BigDecimal amount, Date payDate) {
+		super();
+		this.payId = payId;
+		this.custId = custId;
+		this.staffId = staffId;
+		this.rentId = rentId;
+		this.amount = amount;
+		this.payDate = payDate;
+	}
 	public int getPayId() {
 		return payId;
 	}
