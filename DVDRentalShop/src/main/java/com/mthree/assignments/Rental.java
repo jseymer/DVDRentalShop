@@ -1,18 +1,32 @@
 package com.mthree.assignments;
 
-import java.sql.Timestamp;
+import java.util.Date;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Rental")
 public class Rental {
-	private long rentalId;
-	private Timestamp rentalDate;
-	private long inventoryId;
-	private long customerId;
-	private Timestamp returnDate;
-	private long staffId;
-	private Timestamp lastUpdate;
 	
-	public Rental(long rentalId, Timestamp rentalDate, long inventoryId, long customerId, Timestamp returnDate,
-			long staffId, Timestamp lastUpdate) {
+	@Id
+	@Column(name = "rental_id")
+	private long rentalId;
+	@Column(name = "rental_date")
+	private Date rentalDate;
+	@Column(name = "inventory_id")
+	private long inventoryId;
+	@Column(name = "customer_id")
+	private long customerId;
+	@Column(name = "return_date")
+	private Date returnDate;
+	@Column(name = "staff_id")
+	private long staffId;
+	
+	
+	public Rental(long rentalId, Date rentalDate, long inventoryId, long customerId, Date returnDate, long staffId) {
 		super();
 		this.rentalId = rentalId;
 		this.rentalDate = rentalDate;
@@ -20,24 +34,17 @@ public class Rental {
 		this.customerId = customerId;
 		this.returnDate = returnDate;
 		this.staffId = staffId;
-		this.lastUpdate = lastUpdate;
 	}
-	
-	public Rental(long rentalId) {
-		super();
-		this.rentalId = rentalId;
-	}
-	
 	public long getRentalId() {
 		return rentalId;
 	}
 	public void setRentalId(long rentalId) {
 		this.rentalId = rentalId;
 	}
-	public Timestamp getRentalDate() {
+	public Date getRentalDate() {
 		return rentalDate;
 	}
-	public void setRentalDate(Timestamp rentalDate) {
+	public void setRentalDate(Date rentalDate) {
 		this.rentalDate = rentalDate;
 	}
 	public long getInventoryId() {
@@ -52,10 +59,10 @@ public class Rental {
 	public void setCustomerId(long customerId) {
 		this.customerId = customerId;
 	}
-	public Timestamp getReturnDate() {
+	public Date getReturnDate() {
 		return returnDate;
 	}
-	public void setReturnDate(Timestamp returnDate) {
+	public void setReturnDate(Date returnDate) {
 		this.returnDate = returnDate;
 	}
 	public long getStaffId() {
@@ -64,17 +71,12 @@ public class Rental {
 	public void setStaffId(long staffId) {
 		this.staffId = staffId;
 	}
-	public Timestamp getLastUpdate() {
-		return lastUpdate;
-	}
-	public void setLastUpdate(Timestamp lastUpdate) {
-		this.lastUpdate = lastUpdate;
-	}
 	@Override
 	public String toString() {
 		return "Rental [rentalId=" + rentalId + ", rentalDate=" + rentalDate + ", inventoryId=" + inventoryId
-				+ ", customerId=" + customerId + ", returnDate=" + returnDate + ", staffId=" + staffId + ", lastUpdate="
-				+ lastUpdate + "]";
+				+ ", customerId=" + customerId + ", returnDate=" + returnDate + ", staffId=" + staffId + "]";
 	}
+	
+	
 
 }
