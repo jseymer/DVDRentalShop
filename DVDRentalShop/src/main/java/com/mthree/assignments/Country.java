@@ -1,8 +1,12 @@
 package com.mthree.assignments;
 
+import java.util.ArrayList;
+import java.util.List;
+
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -15,6 +19,8 @@ public class Country {
 	@Column(name = "countryName")
 	private String countryName;
 	
+	@OneToMany(mappedBy = "country")
+    private List<City> cities = new ArrayList<>();
 	
 	public Country(long countryId, String countryName) {
 		super();

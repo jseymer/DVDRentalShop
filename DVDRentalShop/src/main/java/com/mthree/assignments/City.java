@@ -7,6 +7,8 @@ import java.util.List;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -24,6 +26,10 @@ public class City {
 	
 	@OneToMany(mappedBy = "city")
     private List<Address> addresses = new ArrayList<>();
+	
+	@ManyToOne
+    @JoinColumn(name="Country_ID")
+    private Country country;
 	
 	public City() {
 		super();
