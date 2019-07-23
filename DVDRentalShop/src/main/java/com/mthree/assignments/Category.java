@@ -1,8 +1,16 @@
 package com.mthree.assignments;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -15,6 +23,14 @@ public class Category {
 	
 	@Column(name = "Name")
 	private String name;
+	
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	@JoinTable(
+	            name = "Film_Category",
+	            joinColumns = {@JoinColumn(name = "category_id")},
+	            inverseJoinColumns = {@JoinColumn(name = "film_id")}
+	)
+	private Set<Film> films = new HashSet<>();
 	
 	public Category(long categoryID, String name) {
 		this.setCategoryID(categoryID);

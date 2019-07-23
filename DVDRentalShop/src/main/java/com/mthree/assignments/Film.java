@@ -56,6 +56,9 @@ public class Film {
 	@ManyToMany(mappedBy = "films", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
 	private Set<Actor> actors = new HashSet<>();
 	
+	@ManyToMany(mappedBy = "films", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+	private Set<Category> categories = new HashSet<>();
+	
 	public Film(long filmId, String year, long rentDuration, long length, String title, String description, String rating,
 			String features, BigDecimal rate, BigDecimal replaceCost, long languageID, long originalLanguageID) {
 		super();
