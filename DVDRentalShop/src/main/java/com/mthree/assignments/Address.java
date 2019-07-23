@@ -3,6 +3,8 @@ package com.mthree.assignments;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 import javax.persistence.Table;
 
 @Entity
@@ -30,6 +32,10 @@ public class Address {
 	
 	@Column(name = "Phone")
 	private String phone;
+	
+	@ManyToOne
+    @JoinColumn(name="City_ID")
+    private City city;
 
 	public Address(long addressID, String address, long cityID, String postalCode) {
 		this.setAddressID(addressID);
