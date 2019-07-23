@@ -1,8 +1,16 @@
 package com.mthree.assignments;
 
+import java.util.HashSet;
+import java.util.Set;
+
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -17,6 +25,13 @@ public class Actor {
 	@Column(name = "last_name")
 	private String lastName;
 	
+	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	@JoinTable(
+	            name = "Film_Actor",
+	            joinColumns = {@JoinColumn(name = "actor_id")},
+	            inverseJoinColumns = {@JoinColumn(name = "film_id")}
+	)
+	private Set<Film> films = new HashSet<>();
 	
 	public Actor(long actorId, String firstName, String lastName) {
 		super();

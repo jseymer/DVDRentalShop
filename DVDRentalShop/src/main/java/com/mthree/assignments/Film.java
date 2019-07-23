@@ -1,10 +1,15 @@
 package com.mthree.assignments;
 
 import java.math.BigDecimal;
+import java.util.HashSet;
+import java.util.Set;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
@@ -47,6 +52,9 @@ public class Film {
 	
 	@Column(name = "Original_Language_ID")
 	private long originalLanguageID;
+	
+	@ManyToMany(mappedBy = "films", cascade = CascadeType.PERSIST, fetch = FetchType.EAGER)
+	private Set<Actor> actors = new HashSet<>();
 	
 	public Film(long filmId, String year, long rentDuration, long length, String title, String description, String rating,
 			String features, BigDecimal rate, BigDecimal replaceCost, long languageID, long originalLanguageID) {
