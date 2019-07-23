@@ -15,7 +15,7 @@ public class Film {
 	@Column(name = "Film_ID")
 	private long filmId;
 	
-	@Column(name = "Year")
+	@Column(name = "Release_Year")
 	private long year;
 	
 	@Column(name = "Rental_Duration")
