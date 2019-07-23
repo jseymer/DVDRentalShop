@@ -42,19 +42,27 @@ public class Film {
 	@Column(name = "Replacement_Cost")
 	private BigDecimal replaceCost;
 	
+	@Column(name = "Language_ID")
+	private long languageID;
+	
+	@Column(name = "Original_Language_ID")
+	private long originalLanguageID;
+	
 	public Film(long filmId, long year, long rentDuration, long length, String title, String description, String rating,
-			String features, BigDecimal rate, BigDecimal replaceCost) {
+			String features, BigDecimal rate, BigDecimal replaceCost, long languageID, long originalLanguageID) {
 		super();
-		this.filmId = filmId;
-		this.year = year;
-		this.rentDuration = rentDuration;
-		this.length = length;
-		this.title = title;
-		this.description = description;
-		this.rating = rating;
-		this.features = features;
-		this.rate = rate;
-		this.replaceCost = replaceCost;
+		this.setFilmId(filmId);;
+		this.setYear(year);;
+		this.setRentDuration(rentDuration);;
+		this.setLength(length);
+		this.setTitle(title);
+		this.setDescription(description);
+		this.setRating(rating);
+		this.setFeatures(features);
+		this.setRate(rate);
+		this.setReplaceCost(replaceCost);
+		this.setLanguageID(languageID);
+		this.setOriginalLanguageID(originalLanguageID);
 	}
 	public long getFilmId() {
 		return filmId;
@@ -116,5 +124,19 @@ public class Film {
 	public void setReplaceCost(BigDecimal replaceCost) {
 		this.replaceCost = replaceCost;
 	}
+	public long getLanguageID() {
+		return languageID;
+	}
+	public void setLanguageID(long languageID) {
+		this.languageID = languageID;
+	}
+	public long getOriginalLanguageID() {
+		return originalLanguageID;
+	}
+	public void setOriginalLanguageID(long originalLanguageID) {
+		this.originalLanguageID = originalLanguageID;
+	}
+	
+	
 	
 }
