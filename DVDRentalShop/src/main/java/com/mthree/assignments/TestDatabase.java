@@ -10,6 +10,7 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Optional;
 import java.util.Properties;
 
@@ -49,9 +50,10 @@ public class TestDatabase {
 			//read("Ruse");
 			String PERS = "DVDRentalShop";
 			EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERS);
-			DAO<City> dao = new DAO<>(factory);
-			Optional<City> oCity = dao.read(584, City.class);
-			System.out.println(oCity.get().toString());
+			DAO<Actor> dao = new DAO<>(factory);
+			//Optional<List<City>> oCityList = dao.read("CITY", "Lima", City.class); //ColumnName, ColumnValue, Class
+			Optional<List<Actor>> oCityList = dao.read("last_name", "WAHLBERG", Actor.class);
+			System.out.println(oCityList.get().get(0).toString());
 			
 			
 		} catch (Exception e) {
