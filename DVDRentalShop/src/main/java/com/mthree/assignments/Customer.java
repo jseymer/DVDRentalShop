@@ -12,15 +12,15 @@ import javax.persistence.Table;
 public class Customer {
 	@Id
 	@Column(name = "customer_id")
-	private int customerId;
+	private long customerId;
 	@Column(name = "store_id")
-	private int storeId;
+	private long storeId;
 	@Column(name = "first_name")
 	private String fName;
 	@Column(name = "last_name")
 	private String lName;
 	@Column(name = "address_id")
-	private int addressId;
+	private long addressId;
 	@Column(name = "email")
 	private String email;
 	@Column(name = "active")
@@ -29,7 +29,7 @@ public class Customer {
 	private Date startDate;
 	
 	
-	public Customer(int customerId, int storeId, int addressId, String fName, String lName, String email,
+	public Customer(long customerId, long storeId, long addressId, String fName, String lName, String email,
 			boolean active, Date startDate) {
 		super();
 		this.customerId = customerId;
@@ -43,32 +43,32 @@ public class Customer {
 	}
 
 
-	public int getCustomerId() {
+	public long getCustomerId() {
 		return customerId;
 	}
 
 
-	public void setCustomerId(int customerId) {
+	public void setCustomerId(long customerId) {
 		this.customerId = customerId;
 	}
 
 
-	public int getStoreId() {
+	public long getStoreId() {
 		return storeId;
 	}
 
 
-	public void setStoreId(int storeId) {
+	public void setStoreId(long storeId) {
 		this.storeId = storeId;
 	}
 
 
-	public int getAddressId() {
+	public long getAddressId() {
 		return addressId;
 	}
 
 
-	public void setAddressId(int addressId) {
+	public void setAddressId(long addressId) {
 		this.addressId = addressId;
 	}
 

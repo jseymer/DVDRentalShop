@@ -14,20 +14,20 @@ public class Payment {
 
 	@Id
 	@Column(name = "payment_id")
-	private int payId;
+	private long payId;
 	@Column(name = "customer_id")
-	private int custId;
+	private long custId;
 	@Column(name = "staff_id")
-	private int staffId;
+	private long staffId;
 	@Column(name = "rental_id")
-	private int rentId;
+	private long rentId;
 	@Column(name = "amount")
 	private BigDecimal amount;
 	@Column(name = "payment_date")
 	private Date payDate;
 	
 	
-	public Payment(int payId, int custId, int staffId, int rentId, BigDecimal amount, Date payDate) {
+	public Payment(long payId, long custId, long staffId, long rentId, BigDecimal amount, Date payDate) {
 		super();
 		this.payId = payId;
 		this.custId = custId;
@@ -36,28 +36,28 @@ public class Payment {
 		this.amount = amount;
 		this.payDate = payDate;
 	}
-	public int getPayId() {
+	public long getPayId() {
 		return payId;
 	}
-	public void setPayId(int payId) {
+	public void setPayId(long payId) {
 		this.payId = payId;
 	}
-	public int getCustId() {
+	public long getCustId() {
 		return custId;
 	}
-	public void setCustId(int custId) {
+	public void setCustId(long custId) {
 		this.custId = custId;
 	}
-	public int getStaffId() {
+	public long getStaffId() {
 		return staffId;
 	}
-	public void setStaffId(int staffId) {
+	public void setStaffId(long staffId) {
 		this.staffId = staffId;
 	}
-	public int getRentId() {
+	public long getRentId() {
 		return rentId;
 	}
-	public void setRentId(int rentId) {
+	public void setRentId(long rentId) {
 		this.rentId = rentId;
 	}
 	public BigDecimal getAmount() {
