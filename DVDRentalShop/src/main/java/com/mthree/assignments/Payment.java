@@ -73,5 +73,8 @@ public class Payment {
 		this.payDate = payDate;
 	}
 	
+	public String toString() {
+		return "Price: " + this.getAmount() + " Date: " + this.getPayDate();
+	}
 	
 }

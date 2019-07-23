@@ -34,6 +34,8 @@ public class Language {
 		this.name = name;
 	}
 	
-	
+	public String toString() {
+		return "Language: " + this.getName();
+	}
 
 }

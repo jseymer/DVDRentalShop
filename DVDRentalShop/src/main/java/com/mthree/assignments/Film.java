@@ -137,6 +137,9 @@ public class Film {
 		this.originalLanguageID = originalLanguageID;
 	}
 	
-	
+	public String toString() {
+		return "Film: " + this.getTitle() + " Rating: " + this.getRating() + " Length " + this.getLength() + " Description: " + 
+	this.getDescription() + " Features " + this.getFeatures();
+	}
 	
 }

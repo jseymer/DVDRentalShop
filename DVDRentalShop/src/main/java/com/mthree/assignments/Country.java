@@ -34,6 +34,8 @@ public class Country {
 		this.countryName = countryName;
 	}
 	
-	
+	public String toString() {
+		return "Country: " + this.getCountryName();
+	}
 
 }

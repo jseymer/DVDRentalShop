@@ -47,6 +47,8 @@ public class City {
 		this.countryId = countryId;
 	}
 	
-	
+	public String toString() {
+		return "City: " + this.getCityName();
+	}
 
 }

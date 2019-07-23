@@ -98,5 +98,9 @@ public class Staff {
 	public void setPassword(String password) {
 		this.password = password;
 	}
+	
+	public String toString() {
+		return "Staff: " + this.getFirstName() + " " + this.getLastName();
+	}
 
 }

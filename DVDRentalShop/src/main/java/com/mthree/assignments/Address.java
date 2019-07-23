@@ -94,5 +94,8 @@ public class Address {
 		this.phone = phone;
 	}
 	
+	public String toString() {
+		return "Address: " + this.getAddress() + " " + this.getPostalCode();
+	}
 	
 }

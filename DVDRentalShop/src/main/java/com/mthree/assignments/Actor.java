@@ -43,6 +43,8 @@ public class Actor {
 		this.lastName = lastName;
 	}
 	
-	
+	public String toString() {
+		return "Actor: " + this.getFirstName() + " " + this.getLastName();
+	}
 
 }
