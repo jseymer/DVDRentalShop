@@ -10,7 +10,11 @@ import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.Optional;
 import java.util.Properties;
+
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 public class TestDatabase {
 	private static String classForName;
@@ -40,10 +44,17 @@ public class TestDatabase {
 		String uid = username;
 		String pwd = password;
 		try {
-			connection = DriverManager.getConnection(connectionString, uid, pwd);
-			stmt = connection.createStatement();
-			read("Ruse");
-		} catch (SQLException e) {
+			//connection = DriverManager.getConnection(connectionString, uid, pwd);
+			//stmt = connection.createStatement();
+			//read("Ruse");
+			String PERS = "DVDRentalShop";
+			EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERS);
+			DAO<City> dao = new DAO<>(factory);
+			Optional<City> oCity = dao.read(584, City.class);
+			System.out.println(oCity.get().toString());
+			
+			
+		} catch (Exception e) {
 			System.out.println(e.getMessage() + " Could not connect, or other sql problem, same comment as above");
 		}
 	}

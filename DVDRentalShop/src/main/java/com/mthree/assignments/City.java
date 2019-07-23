@@ -17,6 +17,10 @@ public class City {
 	@Column(name = "country_id")
 	private long countryId;
 	
+	public City() {
+		super();
+	}
+	
 	
 	public City(long cityId, String cityName, long countryId) {
 		super();

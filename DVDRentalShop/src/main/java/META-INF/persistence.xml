@@ -3,9 +3,24 @@
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
 	xsi:schemaLocation="http://java.sun.com/xml/ns/persistence http://java.sun.com/xml/ns/persistence/persistence_2_0.xsd"
 	version="2.0" xmlns="http://java.sun.com/xml/ns/persistence">
-	<persistence-unit name="DAODemo"
+	<persistence-unit name="DVDRentalShop"
 		transaction-type="RESOURCE_LOCAL">
-		<class>com.m3.training.dao.City</class>
+		<class>com.m3.assignments.Actor</class>
+		<class>com.m3.assignments.Address</class>
+		<class>com.m3.assignments.Category</class>
+		<class>com.m3.assignments.City</class>
+		<class>com.m3.assignments.Country</class>
+		<class>com.m3.assignments.Customer</class>
+		<class>com.m3.assignments.Film</class>
+		<class>com.m3.assignments.FilmActor</class>
+		<class>com.m3.assignments.FilmCategory</class>
+		<class>com.m3.assignments.Inventory</class>
+		<class>com.m3.assignments.Language</class>
+		<class>com.m3.assignments.Payment</class>
+		<class>com.m3.assignments.Rental</class>
+		<class>com.m3.assignments.Staff</class>
+		<class>com.m3.assignments.Store</class>
+		
 		<properties>
 			<property name="javax.persistence.jdbc.driver"
 				value="oracle.jdbc.driver.OracleDriver" />
