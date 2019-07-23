@@ -51,9 +51,9 @@ public class Film {
 	public Film(long filmId, long year, long rentDuration, long length, String title, String description, String rating,
 			String features, BigDecimal rate, BigDecimal replaceCost, long languageID, long originalLanguageID) {
 		super();
-		this.setFilmId(filmId);;
-		this.setYear(year);;
-		this.setRentDuration(rentDuration);;
+		this.setFilmId(filmId);
+		this.setYear(year);
+		this.setRentDuration(rentDuration);
 		this.setLength(length);
 		this.setTitle(title);
 		this.setDescription(description);
