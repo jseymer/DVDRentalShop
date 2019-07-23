@@ -16,7 +16,7 @@ public class Film {
 	private long filmId;
 	
 	@Column(name = "Release_Year")
-	private long year;
+	private String year;
 	
 	@Column(name = "Rental_Duration")
 	private long rentDuration;
@@ -48,7 +48,7 @@ public class Film {
 	@Column(name = "Original_Language_ID")
 	private long originalLanguageID;
 	
-	public Film(long filmId, long year, long rentDuration, long length, String title, String description, String rating,
+	public Film(long filmId, String year, long rentDuration, long length, String title, String description, String rating,
 			String features, BigDecimal rate, BigDecimal replaceCost, long languageID, long originalLanguageID) {
 		super();
 		this.setFilmId(filmId);
@@ -70,10 +70,10 @@ public class Film {
 	public void setFilmId(long filmId) {
 		this.filmId = filmId;
 	}
-	public long getYear() {
+	public String getYear() {
 		return year;
 	}
-	public void setYear(long year) {
+	public void setYear(String year) {
 		this.year = year;
 	}
 	public long getRentDuration() {
