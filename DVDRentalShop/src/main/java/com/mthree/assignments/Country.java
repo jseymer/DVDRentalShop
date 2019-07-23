@@ -1,0 +1,39 @@
+package com.mthree.assignments;
+
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.Id;
+import javax.persistence.Table;
+
+@Entity
+@Table(name = "Country")
+public class Country {
+	
+	@Id
+	@Column(name = "country_id")
+	private long countryId;
+	@Column(name = "countryName")
+	private String countryName;
+	
+	
+	public Country(long countryId, String countryName) {
+		super();
+		this.countryId = countryId;
+		this.countryName = countryName;
+	}
+	public long getCountryId() {
+		return countryId;
+	}
+	public void setCountryId(long countryId) {
+		this.countryId = countryId;
+	}
+	public String getCountryName() {
+		return countryName;
+	}
+	public void setCountryName(String countryName) {
+		this.countryName = countryName;
+	}
+	
+	
+
+}
