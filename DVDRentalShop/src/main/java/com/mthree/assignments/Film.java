@@ -42,6 +42,20 @@ public class Film {
 	@Column(name = "Replacement_Cost")
 	private BigDecimal replaceCost;
 	
+	public Film(long filmId, long year, long rentDuration, long length, String title, String description, String rating,
+			String features, BigDecimal rate, BigDecimal replaceCost) {
+		super();
+		this.filmId = filmId;
+		this.year = year;
+		this.rentDuration = rentDuration;
+		this.length = length;
+		this.title = title;
+		this.description = description;
+		this.rating = rating;
+		this.features = features;
+		this.rate = rate;
+		this.replaceCost = replaceCost;
+	}
 	public long getFilmId() {
 		return filmId;
 	}
