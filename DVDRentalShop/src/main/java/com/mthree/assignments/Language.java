@@ -3,10 +3,11 @@ package com.mthree.assignments;
 import java.util.ArrayList;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.JoinColumn;
+
 import javax.persistence.OneToMany;
 import javax.persistence.Table;
 
@@ -20,8 +21,7 @@ public class Language {
 	@Column(name = "name")
 	private String name;
 	
-	@OneToMany
-	@JoinColumn(name = "language")
+	@OneToMany(mappedBy = "language", cascade = CascadeType.ALL)
 	private List<Film> films = new ArrayList<>();
 	
 	public Language(long langId, String name) {
@@ -41,7 +41,12 @@ public class Language {
 	public void setName(String name) {
 		this.name = name;
 	}
-	
+	public List<Film> getFilms() {
+		return films;
+	}
+	public void setFilms(List<Film> films) {
+		this.films = films;
+	}
 	public String toString() {
 		return "Language: " + this.getName();
 	}
