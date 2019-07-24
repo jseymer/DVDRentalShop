@@ -3,11 +3,25 @@ package com.mthree.assignments;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.sql.SQLException;
+import java.util.List;
+import java.util.Optional;
+
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
 
 public class UserInterface {
-	BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
-	private boolean cont = true;
+	BufferedReader reader;
+	EntityManagerFactory factory;
+	private boolean cont;
 	public static final String QUIT = "q";
+	public static final String PERS = "DVDRentalShop";
+	
+	public UserInterface() {
+		reader = new BufferedReader(new InputStreamReader(System.in));
+		factory = Persistence.createEntityManagerFactory(PERS);
+		cont = true;
+	}
 
 	public void begin() {
 		System.out.println("Welcome Select an Option");
@@ -33,13 +47,13 @@ public class UserInterface {
 					displayCustomerManagement();
 					break;
 				case 2:
-					rentalManagement();
+					displayRentalManagement();
 					break;
 				case 3:
-					filmManagement();
+					displayFilmManagement();
 					break;
 				case 4:
-					staffManagement();
+					displayStaffManagement();
 					break;
 				default:
 				}
@@ -65,33 +79,97 @@ public class UserInterface {
 				switch (selectedOption) {
 				case 1:
 					System.out.println("Customer Managment-CustomerSearch: Enter your search:");
-					// TODO Add Query Call
+					userInput = reader.readLine();
+					executeCustomerSearch(userInput);
 					break;
 				case 2:
 					System.out.println("Customer Managment-Customers with Outstanding Late Rentals:");
-					// TODO Add Query Call
+					executeCustomerOutstandingLateRentalSearch();
 					break;
 				case 3:
 					System.out.println("Customer Managment-Customers with Pending Fees:");
-					// TODO Add Query Call
+					executeCustomerPendingFeeSearch();
 					break;
 				case 4:
-					System.out.println("Customer Managment-Customers by Late Rentals:");
-					// TODO Add Query Call
+					System.out.println("Customer Managment-Customers by Most Late Rentals:");
+					executeCustomerMostLateSearch();
 					break;
 				case 5:
 					System.out.println("Customer Managment-Customers by Largest Revenue:");
-					// TODO Add Query Call
+					executeCustomerLargestRevenueSearch();
 					break;
 				default:
 				}
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
+		} 
+	}
+	
+	private void executeCustomerSearch(String userInput) {
+		DAO<Customer> dao = new DAO<>(factory);
+		Optional<List<Customer>> oCustomerList = null;;
+		try {
+			oCustomerList = dao.read("FIRST_NAME", userInput, Customer.class);
+		} catch (SQLException e) {
+			e.printStackTrace();
 		}
+		DAO.printList(oCustomerList);
+		
+		oCustomerList = null;;
+		try {
+			oCustomerList = dao.read("LAST_NAME", userInput, Customer.class);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		DAO.printList(oCustomerList);
+	}
+	private void executeCustomerOutstandingLateRentalSearch() {
+		//
+		/*DAO<Rental> dao = new DAO<>(factory);
+		Optional<List<Rental>> oList = null;
+		try {
+			oList = dao.readCustomQuery("select r from Rental r where r.returnDate IS NOT NULL", Rental.class);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		DAO.printList(oList);*/
+	}
+	private void executeCustomerPendingFeeSearch() {
+		//
+		/*DAO<Rental> dao = new DAO<>(factory);
+		Optional<List<Rental>> oList = null;
+		try {
+			oList = dao.readCustomQuery("select r from Rental r where r.returnDate IS NOT NULL", Rental.class);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		DAO.printList(oList);*/
+	}
+	private void executeCustomerMostLateSearch() {
+		//
+		/*DAO<Rental> dao = new DAO<>(factory);
+		Optional<List<Rental>> oList = null;
+		try {
+			oList = dao.readCustomQuery("select r from Rental r where r.returnDate IS NOT NULL", Rental.class);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		DAO.printList(oList);*/
+	}
+	private void executeCustomerLargestRevenueSearch() {
+		//
+		/*DAO<Rental> dao = new DAO<>(factory);
+		Optional<List<Rental>> oList = null;
+		try {
+			oList = dao.readCustomQuery("select r from Rental r where r.returnDate IS NOT NULL", Rental.class);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		DAO.printList(oList);*/
 	}
 
-	private void rentalManagement() {
+	private void displayRentalManagement() {
 		System.out.println("Rental Management: ");
 		System.out.println("1 Current Rentals\n2 Late Rentals\n3 Rentals Due Tomorrow\nq Quit\n");
 		int selectedOption;
@@ -104,15 +182,15 @@ public class UserInterface {
 				switch (selectedOption) {
 				case 1:
 					System.out.println("Rental Managment-Current Rentals:");
-					// TODO Add Query Call
+					executeCurrentRentalSearch();
 					break;
 				case 2:
 					System.out.println("Rental Managment-Late Rentals:");
-					// TODO Add Query Call
+					executeLateRentalSearch();
 					break;
 				case 3:
 					System.out.println("Rental Managment-Rentals Due Tomorrow:");
-					// TODO Add Query Call
+					executeRentalDueTomorrowSearch();
 					break;
 				default:
 				}
@@ -122,8 +200,45 @@ public class UserInterface {
 			e.printStackTrace();
 		}
 	}
+	
+	private void executeCurrentRentalSearch() {
+		DAO<Rental> dao = new DAO<>(factory);
+		Optional<List<Rental>> oList = null;
+		try {
+			oList = dao.readCustomQuery("select r from Rental r where r.returnDate IS NOT NULL", Rental.class);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		DAO.printList(oList);
+	}
+	
+	private void executeLateRentalSearch() {
+		//
+		/*DAO<Rental> dao = new DAO<>(factory);
+		Optional<List<Rental>> oList = null;
+		try {
+			oList = dao.readCustomQuery("select r from Rental r where r.returnDate IS NOT NULL", Rental.class);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		DAO.printList(oList);*/
+	}
+	
+	private void executeRentalDueTomorrowSearch() {
+		//
+		/*DAO<Rental> dao = new DAO<>(factory);
+		Optional<List<Rental>> oList = null;
+		try {
+			oList = dao.readCustomQuery("select r from Rental r where r.returnDate IS NOT NULL", Rental.class);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		DAO.printList(oList);*/
+	}
+	
+	
 
-	private void filmManagement() {
+	private void displayFilmManagement() {
 		System.out.println("Film Management: ");
 		System.out.println(
 				"1 Film Search\n2 Most Popular Films\n3 Most Popular Category\n4 Films in Stock\5 Films Checked Out\nq Quit\n");
@@ -137,7 +252,8 @@ public class UserInterface {
 				switch (selectedOption) {
 				case 1:
 					System.out.println("Film Managment-Film Search: Enter your search:");
-					// TODO Add Query Call
+					userInput = reader.readLine();
+					executeFilmSearch(userInput);
 					break;
 				default:
 				}
@@ -146,8 +262,20 @@ public class UserInterface {
 			e.printStackTrace();
 		}
 	}
+	
+	private void executeFilmSearch(String userInput) {
+		//
+		/*DAO<Rental> dao = new DAO<>(factory);
+		Optional<List<Rental>> oList = null;
+		try {
+			oList = dao.readCustomQuery("select r from Rental r where r.returnDate IS NOT NULL", Rental.class);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		DAO.printList(oList);*/
+	}
 
-	private void staffManagement() {
+	private void displayStaffManagement() {
 		System.out.println("Staff Management: ");
 		System.out.println("1 Employee Search\n2 Highest Grossing Employee\n3 Total Store Revenue\nq Quit\n");
 		int selectedOption;
@@ -160,15 +288,16 @@ public class UserInterface {
 				switch (selectedOption) {
 				case 1:
 					System.out.println("Staff Managment-Employee Search: Enter your search:");
-					// TODO Add Query Call
+					userInput = reader.readLine();
+					executeEmployeeSearch(userInput);
 					break;
 				case 2:
 					System.out.println("Staff Managment-Highest Grossing Employee:");
-					// TODO Add Query Call
+					executeHighestEmployee();
 					break;
 				case 3:
 					System.out.println("Staff Managment-Total Store Revenue:");
-					// TODO Add Query Call
+					executeTotalStoreRevenue();
 					break;
 				default:
 				}
@@ -176,6 +305,47 @@ public class UserInterface {
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
+	}
+	
+	private void executeEmployeeSearch(String userInput) {
+		DAO<Staff> dao = new DAO<>(factory);
+		Optional<List<Staff>> oCustomerList = null;
+		try {
+			oCustomerList = dao.read("FIRST_NAME", userInput, Staff.class);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		DAO.printList(oCustomerList);
+		
+		oCustomerList = null;;
+		try {
+			oCustomerList = dao.read("LAST_NAME", userInput, Staff.class);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		DAO.printList(oCustomerList);
+	}
+	private void executeHighestEmployee() {
+		//
+		/*DAO<Rental> dao = new DAO<>(factory);
+		Optional<List<Rental>> oList = null;
+		try {
+			oList = dao.readCustomQuery("select r from Rental r where r.returnDate IS NOT NULL", Rental.class);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		DAO.printList(oList);*/
+	}
+	private void executeTotalStoreRevenue() {
+		//
+		/*DAO<Rental> dao = new DAO<>(factory);
+		Optional<List<Rental>> oList = null;
+		try {
+			oList = dao.readCustomQuery("select r from Rental r where r.returnDate IS NOT NULL", Rental.class);
+		} catch (SQLException e) {
+			e.printStackTrace();
+		}
+		DAO.printList(oList);*/
 	}
 
 	public boolean shouldCont() {

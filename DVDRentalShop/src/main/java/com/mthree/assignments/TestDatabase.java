@@ -1,10 +1,10 @@
 package com.mthree.assignments;
 
-import java.io.FileInputStream;
+/*import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.sql.Connection;
-import java.sql.DriverManager;
+
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
@@ -13,10 +13,10 @@ import java.util.Optional;
 import java.util.Properties;
 
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.Persistence;
+import javax.persistence.Persistence;*/
 
 public class TestDatabase {
-	private static String classForName;
+	/*private static String classForName;
 	private static String connectionString = null;
 	private static String username;
 	private static String password;
@@ -33,8 +33,7 @@ public class TestDatabase {
 		} catch (ClassNotFoundException e) {
 			System.out.println("Could not find class");
 		}
-		String uid = username;
-		String pwd = password;
+		
 		try {
 			//connection = DriverManager.getConnection(connectionString, uid, pwd);
 			//stmt = connection.createStatement();
@@ -146,5 +145,5 @@ public class TestDatabase {
 
 	public static void setStmt(Statement stmt) {
 		TestDatabase.stmt = stmt;
-	}
+	}*/
 }

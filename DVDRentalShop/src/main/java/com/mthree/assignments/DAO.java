@@ -11,8 +11,7 @@ import java.util.Optional;
 import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Query;
-
-
+import javax.persistence.TypedQuery;
 
 public class DAO<S>{
 	private EntityManager eManager;
@@ -21,7 +20,6 @@ public class DAO<S>{
 		this.eManager = factory.createEntityManager();
 	}
 
-	
 	public void create(S s) throws SQLException{
 		eManager.getTransaction().begin();
 		eManager.persist(s);
@@ -29,33 +27,28 @@ public class DAO<S>{
 	}
 
 	public Optional<List<S>> read(String columnName, String columnValue, Class<S> clazz) throws SQLException{
-		//Query query = eManager.createNativeQuery("select * from CITY where CITY.CITY = '" + columnValue + "'", clazz);
 		Query query = eManager.createNativeQuery("select * from "+clazz.getSimpleName()+" where "+
 				clazz.getSimpleName()+"."+columnName+" = '" + columnValue + "'", clazz);
-		
-		
-	
-		System.out.println("select * from "+clazz.getSimpleName().toUpperCase()+" where "+
-				clazz.getSimpleName()+"."+columnName+" = '" + columnValue + "'");
 		List<S> list = new ArrayList<>();
-	
 		for(Object result : query.getResultList()) {
 			if(clazz.isInstance(result)) {
 				list.add((clazz.cast(result)));
 			}
 		}
 		return Optional.of(list);
-		//Optional.of(eManager.find(clazz, id));
+	}
+	
+	public Optional<List<S>> readCustomQuery(String queryStr, Class<S> clazz) throws SQLException{
+		System.out.println("Query executed: " + queryStr); //TODO REMOVE PRINT AFTER TESTING
+		TypedQuery<S> typedQuery = eManager.createQuery(queryStr, clazz);  
+		List<S> list = typedQuery.getResultList();
+		return Optional.of(list);
 	}
 	
 	public static <T> void printList(Optional<List<T>> oList){
 		List<T> list = oList.get();
-		/*list.stream().map(t -> {
-			System.out.println(t);
-			return true;
-		});*/
 		for(T t : list) {
-			System.out.println(t);
+			System.out.println("Result: "+ t + "\n");
 		}
 	}
 	
@@ -74,9 +67,9 @@ public class DAO<S>{
 
 	
 	public void delete(long id, Class<S> clazz) throws SQLException {
-		eManager.getTransaction().begin();
+		/*eManager.getTransaction().begin();
 		S s = eManager.find(clazz, id);
 		eManager.remove(s);
-		eManager.getTransaction().commit();
+		eManager.getTransaction().commit();*/
 	}
 }

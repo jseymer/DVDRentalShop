@@ -24,12 +24,15 @@ public class Rental {
 	private Date returnDate;
 	@Column(name = "staff_id")
 	private long staffId;
+	@Column(name = "last_update")
+	private Date lastUpdated;
+	
 	
 	
 	public Rental() {
 		super();
 	}
-	public Rental(long rentalId, Date rentalDate, long inventoryId, long customerId, Date returnDate, long staffId) {
+	public Rental(long rentalId, Date rentalDate, long inventoryId, long customerId, Date returnDate, long staffId, Date lastUpdated) {
 		super();
 		this.rentalId = rentalId;
 		this.rentalDate = rentalDate;
@@ -37,6 +40,7 @@ public class Rental {
 		this.customerId = customerId;
 		this.returnDate = returnDate;
 		this.staffId = staffId;
+		this.lastUpdated = lastUpdated;
 	}
 	public long getRentalId() {
 		return rentalId;

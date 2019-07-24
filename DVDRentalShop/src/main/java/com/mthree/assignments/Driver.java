@@ -3,17 +3,9 @@ package com.mthree.assignments;
 import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
-import java.sql.Connection;
-import java.sql.Statement;
 import java.util.Properties;
 
 public class Driver {
-	private static String classForName;
-	private static String connectionString = null;
-	private static String username;
-	private static String password;
-	private static Connection connection;
-	private static Statement stmt;
 	
 	public static void main(String[] args) {
 		loadPropertiesFile();
@@ -27,11 +19,7 @@ public class Driver {
 		try {
 			input = new FileInputStream("sampleProperties.properties");
 			prop.load(input);
-			classForName = prop.getProperty("ClassForName");
-			connectionString = prop.getProperty("ConnectionString");
-			username = prop.getProperty("Username");
-			password = prop.getProperty("Password");
-
+			prop.getProperty("ClassForName");
 		} catch (IOException ex) {
 			ex.printStackTrace();
 		} finally {
