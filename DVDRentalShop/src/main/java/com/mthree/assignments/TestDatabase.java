@@ -47,7 +47,8 @@ public class TestDatabase {
 			DAO<Actor> dao = new DAO<>(factory);
 			//Optional<List<City>> oCityList = dao.read("CITY", "Lima", City.class); //ColumnName, ColumnValue, Class
 			Optional<List<Actor>> oCityList = dao.read("last_name", "WAHLBERG", Actor.class);
-			System.out.println(oCityList.get().get(0).toString());
+			//System.out.println(oCityList.get().get(0).toString());
+			DAO.printList(oCityList);
 			
 			
 		} catch (Exception e) {
