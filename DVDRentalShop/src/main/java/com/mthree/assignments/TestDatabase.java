@@ -8,8 +8,6 @@ import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
-import java.util.ArrayList;
-import java.util.Iterator;
 import java.util.List;
 import java.util.Optional;
 import java.util.Properties;
@@ -26,13 +24,6 @@ public class TestDatabase {
 	private static Statement stmt;
 
 	
-	
-	/*Run this to verify that your database connection works
-	 * Should print out:
-	 * 
-	 * Class loaded
-	 * Result: name is Ruse CITYID is 436 and COUNTRYID is 17
-	 */
 	public static void main(String[] args) {
 		loadPropertiesFile();
 	
@@ -48,6 +39,9 @@ public class TestDatabase {
 			//connection = DriverManager.getConnection(connectionString, uid, pwd);
 			//stmt = connection.createStatement();
 			//read("Ruse");
+			
+			
+			
 			String PERS = "DVDRentalShop";
 			EntityManagerFactory factory = Persistence.createEntityManagerFactory(PERS);
 			DAO<Actor> dao = new DAO<>(factory);
@@ -57,6 +51,7 @@ public class TestDatabase {
 			
 			
 		} catch (Exception e) {
+			e.printStackTrace();
 			System.out.println(e.getMessage() + " Could not connect, or other sql problem, same comment as above");
 		}
 	}
@@ -102,5 +97,53 @@ public class TestDatabase {
 				}
 			}
 		}
+	}
+
+	public static String getClassForName() {
+		return classForName;
+	}
+
+	public static void setClassForName(String classForName) {
+		TestDatabase.classForName = classForName;
+	}
+
+	public static String getConnectionString() {
+		return connectionString;
+	}
+
+	public static void setConnectionString(String connectionString) {
+		TestDatabase.connectionString = connectionString;
+	}
+
+	public static String getUsername() {
+		return username;
+	}
+
+	public static void setUsername(String username) {
+		TestDatabase.username = username;
+	}
+
+	public static String getPassword() {
+		return password;
+	}
+
+	public static void setPassword(String password) {
+		TestDatabase.password = password;
+	}
+
+	public static Connection getConnection() {
+		return connection;
+	}
+
+	public static void setConnection(Connection connection) {
+		TestDatabase.connection = connection;
+	}
+
+	public static Statement getStmt() {
+		return stmt;
+	}
+
+	public static void setStmt(Statement stmt) {
+		TestDatabase.stmt = stmt;
 	}
 }

@@ -34,9 +34,11 @@ public class Address {
 	@Column(name = "Phone")
 	private String phone;
 	
-	@ManyToOne
+	
+	
+/*	@ManyToOne
     @JoinColumn(name="City_ID")
-    private City city;
+    private City city;*/
 
 	public Address(long addressID, String address, long cityID, String postalCode) {
 		this.setAddressID(addressID);

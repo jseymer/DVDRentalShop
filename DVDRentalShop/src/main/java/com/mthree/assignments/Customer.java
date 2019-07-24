@@ -27,8 +27,11 @@ public class Customer {
 	private boolean active;
 	@Column(name = "create_date")
 	private Date startDate;
-	
-	
+
+	public Customer() {
+		super();
+	}
+
 	public Customer(long customerId, long storeId, long addressId, String fName, String lName, String email,
 			boolean active, Date startDate) {
 		super();
@@ -42,89 +45,73 @@ public class Customer {
 		this.startDate = startDate;
 	}
 
-
 	public long getCustomerId() {
 		return customerId;
 	}
-
 
 	public void setCustomerId(long customerId) {
 		this.customerId = customerId;
 	}
 
-
 	public long getStoreId() {
 		return storeId;
 	}
-
 
 	public void setStoreId(long storeId) {
 		this.storeId = storeId;
 	}
 
-
 	public long getAddressId() {
 		return addressId;
 	}
-
 
 	public void setAddressId(long addressId) {
 		this.addressId = addressId;
 	}
 
-
 	public String getfName() {
 		return fName;
 	}
-
 
 	public void setfName(String fName) {
 		this.fName = fName;
 	}
 
-
 	public String getlName() {
 		return lName;
 	}
-
 
 	public void setlName(String lName) {
 		this.lName = lName;
 	}
 
-
 	public String getEmail() {
 		return email;
 	}
-
 
 	public void setEmail(String email) {
 		this.email = email;
 	}
 
-
 	public boolean isActive() {
 		return active;
 	}
-
 
 	public void setActive(boolean active) {
 		this.active = active;
 	}
 
-
 	public Date getStartDate() {
 		return startDate;
 	}
 
-
 	public void setStartDate(Date startDate) {
 		this.startDate = startDate;
 	}
-	
+
 	public String toString() {
-		return "Customer: " + this.getfName() + " " + this.getlName() + ", " + this.getEmail() + ", " + this.getStartDate();
+		return "Customer: " + this.getfName() + " " + this.getlName() + ", " + this.getEmail() + ", "
+				+ this.getStartDate();
 	}
-	
-	
+
 }

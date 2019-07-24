@@ -16,7 +16,12 @@ public class FilmActor {
 	@Column(name = "Film_ID")
 	private long filmID;
 	
+	public FilmActor() {
+		super();
+	}
+	
 	public FilmActor(long actorID, long filmID) {
+		super();
 		this.setActorID(actorID);
 		this.setFilmID(filmID);
 	}

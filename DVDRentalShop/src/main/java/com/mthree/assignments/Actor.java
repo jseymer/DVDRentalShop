@@ -14,7 +14,7 @@ import javax.persistence.ManyToMany;
 import javax.persistence.Table;
 
 @Entity
-@Table(name = "Category")
+@Table(name = "Actor")
 public class Actor {
 	
 	@Id
@@ -25,13 +25,17 @@ public class Actor {
 	@Column(name = "last_name")
 	private String lastName;
 	
-	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	/*@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
 	@JoinTable(
 	            name = "Film_Actor",
 	            joinColumns = {@JoinColumn(name = "actor_id")},
 	            inverseJoinColumns = {@JoinColumn(name = "film_id")}
-	)
-	private Set<Film> films = new HashSet<>();
+	)*/
+	/*private Set<Film> films = new HashSet<>();*/
+	
+	public Actor() {
+		super();
+	}
 	
 	public Actor(long actorId, String firstName, String lastName) {
 		super();

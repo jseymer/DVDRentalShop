@@ -19,7 +19,12 @@ public class Inventory {
 	@Column(name = "Store_ID")
 	private long storeID;
 	
+	public Inventory() {
+		super();
+	}
+	
 	public Inventory(long inventoryID, long filmID, long storeID) {
+		super();
 		this.setInventoryID(inventoryID);
 		this.setFilmID(filmID);
 		this.setStoreID(storeID);
