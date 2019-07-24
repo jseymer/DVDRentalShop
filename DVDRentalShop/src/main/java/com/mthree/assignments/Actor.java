@@ -25,7 +25,7 @@ public class Actor {
 	@Column(name = "last_name")
 	private String lastName;
 	
-	/*@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+	/*@ManyToMany
 	@JoinTable(
 	            name = "Film_Actor",
 	            joinColumns = {@JoinColumn(name = "actor_id")},

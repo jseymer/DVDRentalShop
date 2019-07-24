@@ -49,11 +49,11 @@ public class Film {
 	private long originalLanguageID;
 
 	/*
-	 * @ManyToMany(mappedBy = "films", cascade = CascadeType.PERSIST, fetch =
-	 * FetchType.EAGER) private Set<Actor> actors = new HashSet<>();
+	 * @ManyToMany(mappedBy = "films") 
+	 * private Set<Actor> actors = new HashSet<>();
 	 * 
-	 * @ManyToMany(mappedBy = "films", cascade = CascadeType.PERSIST, fetch =
-	 * FetchType.EAGER) private Set<Category> categories = new HashSet<>();
+	 * @ManyToMany(mappedBy = "films") 
+	 * private Set<Category> categories = new HashSet<>();
 	 */
 	/*
 	 * @ManyToOne

@@ -18,7 +18,7 @@ public class Category {
 	@Column(name = "Name")
 	private String name;
 	
-/*	@ManyToMany(fetch = FetchType.EAGER, cascade = CascadeType.PERSIST)
+/*	@ManyToMany
 	@JoinTable(
 	            name = "Film_Category",
 	            joinColumns = {@JoinColumn(name = "category_id")},
