@@ -48,6 +48,17 @@ public class DAO<S>{
 		//Optional.of(eManager.find(clazz, id));
 	}
 	
+	public static <T> void printList(Optional<List<T>> oList){
+		List<T> list = oList.get();
+		/*list.stream().map(t -> {
+			System.out.println(t);
+			return true;
+		});*/
+		for(T t : list) {
+			System.out.println(t);
+		}
+	}
+	
 	public void update(long id, String columnName, String setterMethodName, String value, Class<S> clazz) throws Exception{
 	/*	S s = eManager.find(clazz, id);
 		Method method = clazz.getMethod(setterMethodName, clazz);

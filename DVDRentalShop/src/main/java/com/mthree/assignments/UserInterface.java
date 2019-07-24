@@ -4,43 +4,42 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 
-public class UserInterfaceDriver {
+public class UserInterface {
 	BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
 	private boolean cont = true;
 	public static final String QUIT = "q";
 
-	public static void main(String[] args) {
-		UserInterfaceDriver io = new UserInterfaceDriver();
+	public void begin() {
 		System.out.println("Welcome Select an Option");
 		do {
-			io.welcomeOptions(io);
-		} while (io.shouldCont());
+			displayInitalOptions();
+		} while (shouldCont());
 		System.out.println("Goodbye");
 	}
 
-	private void welcomeOptions(UserInterfaceDriver io) {
+	private void displayInitalOptions() {
 		int selectedOption;
 		try {
 			System.out.println(
 					"1 Customer Management\n2 Rental Management\n3 Film Magement\n4 Staff Management\nq Quit\n");
-			String userInput = io.reader.readLine();
+			String userInput = reader.readLine();
 			if (userInput.equals(QUIT)) {
-				io.setCont(false);
+				setCont(false);
 				return;
 			} else {
 				selectedOption = Integer.parseInt(userInput);
 				switch (selectedOption) {
 				case 1:
-					io.customerManagement();
+					displayCustomerManagement();
 					break;
 				case 2:
-					io.rentalManagement();
+					rentalManagement();
 					break;
 				case 3:
-					io.filmManagement();
+					filmManagement();
 					break;
 				case 4:
-					io.staffManagement();
+					staffManagement();
 					break;
 				default:
 				}
@@ -52,7 +51,7 @@ public class UserInterfaceDriver {
 		}
 	}
 
-	private void customerManagement() {
+	private void displayCustomerManagement() {
 		System.out.println("Customer Managment: ");
 		System.out.println("1 Customer Search\n2 Customers with Outstanding Late Rentals\n3 Customers with Pending Fees"
 				+ "\n4 Customers by Late Rentals\n5 Customers by Largest Revenue");
