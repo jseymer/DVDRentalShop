@@ -27,6 +27,10 @@ public class Payment {
 	private Date payDate;
 	
 	
+	public Payment() {
+		super();
+	}
+	
 	public Payment(long payId, long custId, long staffId, long rentId, BigDecimal amount, Date payDate) {
 		super();
 		this.payId = payId;

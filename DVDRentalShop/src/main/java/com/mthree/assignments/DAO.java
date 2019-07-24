@@ -1,7 +1,7 @@
 package com.mthree.assignments;
 
-import java.lang.reflect.Constructor;
-import java.lang.reflect.Method;
+//import java.lang.reflect.Constructor;
+//import java.lang.reflect.Method;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
@@ -49,7 +49,7 @@ public class DAO<S>{
 	}
 	
 	public void update(long id, String columnName, String setterMethodName, String value, Class<S> clazz) throws Exception{
-		S s = eManager.find(clazz, id);
+	/*	S s = eManager.find(clazz, id);
 		Method method = clazz.getMethod(setterMethodName, clazz);
 		Constructor<?>[] constr = clazz.getConstructors();
 		
@@ -58,7 +58,7 @@ public class DAO<S>{
 		
 		eManager.getTransaction().begin();
 		eManager.merge(s);
-		eManager.getTransaction().commit();
+		eManager.getTransaction().commit();*/
 	}
 
 	

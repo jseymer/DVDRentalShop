@@ -26,6 +26,9 @@ public class Rental {
 	private long staffId;
 	
 	
+	public Rental() {
+		super();
+	}
 	public Rental(long rentalId, Date rentalDate, long inventoryId, long customerId, Date returnDate, long staffId) {
 		super();
 		this.rentalId = rentalId;

@@ -19,7 +19,11 @@ public class Store {
 	@Column(name = "Address_ID")
 	private long addressID;
 	
+	public Store() {
+		super();
+	}
 	public Store(long storeID, long managerStaffID, long addressID) {
+		super();
 		this.setStoreID(storeID);
 		this.setManagerStaffID(managerStaffID);
 		this.setAddressID(addressID);

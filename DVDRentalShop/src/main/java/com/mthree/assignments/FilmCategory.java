@@ -15,8 +15,13 @@ public class FilmCategory {
 	
 	@Column(name = "Category_ID")
 	private long categoryID;
+	
+	public FilmCategory() {
+		super();
+	}
 
 	public FilmCategory(long filmID, long categoryID) {
+		super();
 		this.setFilmID(filmID);
 		this.setCategoryID(categoryID);
 	}
