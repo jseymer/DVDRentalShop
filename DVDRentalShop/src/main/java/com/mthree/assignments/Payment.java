@@ -1,7 +1,7 @@
 package com.mthree.assignments;
 
 import java.math.BigDecimal;
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -24,14 +24,14 @@ public class Payment {
 	@Column(name = "amount")
 	private BigDecimal amount;
 	@Column(name = "payment_date")
-	private Date payDate;
+	private LocalDateTime payDate;
 	
 	
 	public Payment() {
 		super();
 	}
 	
-	public Payment(long payId, long custId, long staffId, long rentId, BigDecimal amount, Date payDate) {
+	public Payment(long payId, long custId, long staffId, long rentId, BigDecimal amount, LocalDateTime payDate) {
 		super();
 		this.payId = payId;
 		this.custId = custId;
@@ -70,10 +70,10 @@ public class Payment {
 	public void setAmount(BigDecimal amount) {
 		this.amount = amount;
 	}
-	public Date getPayDate() {
+	public LocalDateTime getPayDate() {
 		return payDate;
 	}
-	public void setPayDate(Date payDate) {
+	public void setPayDate(LocalDateTime payDate) {
 		this.payDate = payDate;
 	}
 	
