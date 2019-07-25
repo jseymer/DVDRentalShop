@@ -1,6 +1,6 @@
 package com.mthree.assignments;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -26,14 +26,14 @@ public class Customer {
 	@Column(name = "active")
 	private boolean active;
 	@Column(name = "create_date")
-	private Date startDate;
+	private LocalDateTime startDate;
 
 	public Customer() {
 		super();
 	}
 
 	public Customer(long customerId, long storeId, long addressId, String fName, String lName, String email,
-			boolean active, Date startDate) {
+			boolean active, LocalDateTime startDate) {
 		super();
 		this.customerId = customerId;
 		this.storeId = storeId;
@@ -101,11 +101,11 @@ public class Customer {
 		this.active = active;
 	}
 
-	public Date getStartDate() {
+	public LocalDateTime getStartDate() {
 		return startDate;
 	}
 
-	public void setStartDate(Date startDate) {
+	public void setStartDate(LocalDateTime startDate) {
 		this.startDate = startDate;
 	}
 
