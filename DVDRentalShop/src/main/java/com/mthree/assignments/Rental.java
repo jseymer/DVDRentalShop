@@ -1,6 +1,6 @@
 package com.mthree.assignments;
 
-import java.util.Date;
+import java.time.LocalDateTime;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -15,24 +15,24 @@ public class Rental {
 	@Column(name = "rental_id")
 	private long rentalId;
 	@Column(name = "rental_date")
-	private Date rentalDate;
+	private LocalDateTime rentalDate;
 	@Column(name = "inventory_id")
 	private long inventoryId;
 	@Column(name = "customer_id")
 	private long customerId;
 	@Column(name = "return_date")
-	private Date returnDate;
+	private LocalDateTime returnDate;
 	@Column(name = "staff_id")
 	private long staffId;
 	@Column(name = "last_update")
-	private Date lastUpdated;
+	private LocalDateTime lastUpdated;
 	
 	
 	
 	public Rental() {
 		super();
 	}
-	public Rental(long rentalId, Date rentalDate, long inventoryId, long customerId, Date returnDate, long staffId, Date lastUpdated) {
+	public Rental(long rentalId, LocalDateTime rentalDate, long inventoryId, long customerId, LocalDateTime returnDate, long staffId, LocalDateTime lastUpdated) {
 		super();
 		this.rentalId = rentalId;
 		this.rentalDate = rentalDate;
@@ -48,10 +48,10 @@ public class Rental {
 	public void setRentalId(long rentalId) {
 		this.rentalId = rentalId;
 	}
-	public Date getRentalDate() {
+	public LocalDateTime getRentalDate() {
 		return rentalDate;
 	}
-	public void setRentalDate(Date rentalDate) {
+	public void setRentalDate(LocalDateTime rentalDate) {
 		this.rentalDate = rentalDate;
 	}
 	public long getInventoryId() {
@@ -66,10 +66,10 @@ public class Rental {
 	public void setCustomerId(long customerId) {
 		this.customerId = customerId;
 	}
-	public Date getReturnDate() {
+	public LocalDateTime getReturnDate() {
 		return returnDate;
 	}
-	public void setReturnDate(Date returnDate) {
+	public void setReturnDate(LocalDateTime returnDate) {
 		this.returnDate = returnDate;
 	}
 	public long getStaffId() {
