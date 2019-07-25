@@ -125,7 +125,7 @@ public class UserInterface {
 		DAO.printList(oCustomerList);
 	}
 	private void executeCustomerOutstandingLateRentalSearch() {
-		//
+		//TODO
 		/*DAO<Rental> dao = new DAO<>(factory);
 		Optional<List<Rental>> oList = null;
 		try {
@@ -136,7 +136,7 @@ public class UserInterface {
 		DAO.printList(oList);*/
 	}
 	private void executeCustomerPendingFeeSearch() {
-		//
+		//TODO
 		/*DAO<Rental> dao = new DAO<>(factory);
 		Optional<List<Rental>> oList = null;
 		try {
@@ -147,7 +147,7 @@ public class UserInterface {
 		DAO.printList(oList);*/
 	}
 	private void executeCustomerMostLateSearch() {
-		//
+		//TODO
 		/*DAO<Rental> dao = new DAO<>(factory);
 		Optional<List<Rental>> oList = null;
 		try {
@@ -158,7 +158,7 @@ public class UserInterface {
 		DAO.printList(oList);*/
 	}
 	private void executeCustomerLargestRevenueSearch() {
-		//
+		//TODO
 		/*DAO<Rental> dao = new DAO<>(factory);
 		Optional<List<Rental>> oList = null;
 		try {
@@ -213,7 +213,7 @@ public class UserInterface {
 	}
 	
 	private void executeLateRentalSearch() {
-		//
+		//TODO
 		/*DAO<Rental> dao = new DAO<>(factory);
 		Optional<List<Rental>> oList = null;
 		try {
@@ -225,7 +225,7 @@ public class UserInterface {
 	}
 	
 	private void executeRentalDueTomorrowSearch() {
-		//
+		//TODO
 		/*DAO<Rental> dao = new DAO<>(factory);
 		Optional<List<Rental>> oList = null;
 		try {
@@ -241,7 +241,7 @@ public class UserInterface {
 	private void displayFilmManagement() {
 		System.out.println("Film Management: ");
 		System.out.println(
-				"1 Film Search\n2 Most Popular Films\n3 Most Popular Category\n4 Films in Stock\5 Films Checked Out\nq Quit\n");
+				"1 Film Search\n2 Most Popular Films\n3 Most Popular Category\n4 Films in Stock\n5 Films Checked Out\nq Quit\n");
 		int selectedOption;
 		try {
 			String userInput = reader.readLine();
@@ -264,7 +264,7 @@ public class UserInterface {
 	}
 	
 	private void executeFilmSearch(String userInput) {
-		//
+		//TODO
 		/*DAO<Rental> dao = new DAO<>(factory);
 		Optional<List<Rental>> oList = null;
 		try {
@@ -326,7 +326,7 @@ public class UserInterface {
 		DAO.printList(oCustomerList);
 	}
 	private void executeHighestEmployee() {
-		//
+		//TODO
 		/*DAO<Rental> dao = new DAO<>(factory);
 		Optional<List<Rental>> oList = null;
 		try {
@@ -337,7 +337,7 @@ public class UserInterface {
 		DAO.printList(oList);*/
 	}
 	private void executeTotalStoreRevenue() {
-		//
+		//TODO
 		/*DAO<Rental> dao = new DAO<>(factory);
 		Optional<List<Rental>> oList = null;
 		try {
