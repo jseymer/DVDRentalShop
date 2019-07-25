@@ -3,6 +3,8 @@ package com.mthree.assignments;
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
+import java.math.BigDecimal;
+import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.List;
 import java.util.Optional;
@@ -16,7 +18,7 @@ public class UserInterface {
 	private boolean cont;
 	public static final String QUIT = "q";
 	public static final String PERS = "DVDRentalShop";
-	
+
 	public UserInterface() {
 		reader = new BufferedReader(new InputStreamReader(System.in));
 		factory = Persistence.createEntityManagerFactory(PERS);
@@ -103,70 +105,85 @@ public class UserInterface {
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
-		} 
+		}
 	}
-	
+
 	private void executeCustomerSearch(String userInput) {
+		userInput = userInput.toUpperCase();
 		DAO<Customer> dao = new DAO<>(factory);
-		Optional<List<Customer>> oCustomerList = null;;
+		Optional<List<Customer>> oList = null;
 		try {
-			oCustomerList = dao.read("FIRST_NAME", userInput, Customer.class);
+			oList = dao.readCustomQuery("select c from Customer c where c.lName LIKE '%" + userInput + "%'",
+					Customer.class);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		DAO.printList(oCustomerList);
-		
-		oCustomerList = null;;
+		DAO.printList(oList);
+
+		oList = null;
 		try {
-			oCustomerList = dao.read("LAST_NAME", userInput, Customer.class);
+			oList = dao.readCustomQuery("select c from Customer c where c.fName LIKE '%" + userInput + "%'",
+					Customer.class);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		DAO.printList(oCustomerList);
+		DAO.printList(oList);
 	}
+
 	private void executeCustomerOutstandingLateRentalSearch() {
-		//TODO
-		/*DAO<Rental> dao = new DAO<>(factory);
-		Optional<List<Rental>> oList = null;
+		// TODO
+		/*
+		 * DAO<Rental> dao = new DAO<>(factory); Optional<List<Rental>> oList = null;
+		 * try { oList =
+		 * dao.readCustomQuery("select r from Rental r where r.returnDate IS NOT NULL",
+		 * Rental.class); } catch (SQLException e) { e.printStackTrace(); }
+		 * DAO.printList(oList);
+		 */
+		
+		
+		/*String qlString = "select Max(total) as maximum from (SELECT STAFF_ID, Sum(AMOUNT) AS TOTAL FROM Payment GROUP BY STAFF_ID)";
+		DAO<Payment> dao = new DAO<>(factory);
+		ResultSet resultSet = dao.readSQLQuery(qlString);
 		try {
-			oList = dao.readCustomQuery("select r from Rental r where r.returnDate IS NOT NULL", Rental.class);
+			resultSet.next();
+			Double employeeMaximumEarnings = resultSet.getDouble("maximum");
+			System.out.println("The highest employee earnings was $"+employeeMaximumEarnings);
 		} catch (SQLException e) {
 			e.printStackTrace();
-		}
-		DAO.printList(oList);*/
+		}*/
 	}
+
 	private void executeCustomerPendingFeeSearch() {
-		//TODO
-		/*DAO<Rental> dao = new DAO<>(factory);
-		Optional<List<Rental>> oList = null;
-		try {
-			oList = dao.readCustomQuery("select r from Rental r where r.returnDate IS NOT NULL", Rental.class);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		DAO.printList(oList);*/
+		// TODO
+		/*
+		 * DAO<Rental> dao = new DAO<>(factory); Optional<List<Rental>> oList = null;
+		 * try { oList =
+		 * dao.readCustomQuery("select r from Rental r where r.returnDate IS NOT NULL",
+		 * Rental.class); } catch (SQLException e) { e.printStackTrace(); }
+		 * DAO.printList(oList);
+		 */
 	}
+
 	private void executeCustomerMostLateSearch() {
-		//TODO
-		/*DAO<Rental> dao = new DAO<>(factory);
-		Optional<List<Rental>> oList = null;
-		try {
-			oList = dao.readCustomQuery("select r from Rental r where r.returnDate IS NOT NULL", Rental.class);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		DAO.printList(oList);*/
+		// TODO
+		/*
+		 * DAO<Rental> dao = new DAO<>(factory); Optional<List<Rental>> oList = null;
+		 * try { oList =
+		 * dao.readCustomQuery("select r from Rental r where r.returnDate IS NOT NULL",
+		 * Rental.class); } catch (SQLException e) { e.printStackTrace(); }
+		 * DAO.printList(oList);
+		 */
 	}
+
 	private void executeCustomerLargestRevenueSearch() {
-		//TODO
-		/*DAO<Rental> dao = new DAO<>(factory);
-		Optional<List<Rental>> oList = null;
-		try {
-			oList = dao.readCustomQuery("select r from Rental r where r.returnDate IS NOT NULL", Rental.class);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		DAO.printList(oList);*/
+		// TODO
+		/*
+		 * DAO<Rental> dao = new DAO<>(factory); Optional<List<Rental>> oList = null;
+		 * try { oList =
+		 * dao.readCustomQuery("select r from Rental r where r.returnDate IS NOT NULL",
+		 * Rental.class); } catch (SQLException e) { e.printStackTrace(); }
+		 * DAO.printList(oList);
+		 */
 	}
 
 	private void displayRentalManagement() {
@@ -200,7 +217,7 @@ public class UserInterface {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private void executeCurrentRentalSearch() {
 		DAO<Rental> dao = new DAO<>(factory);
 		Optional<List<Rental>> oList = null;
@@ -211,32 +228,28 @@ public class UserInterface {
 		}
 		DAO.printList(oList);
 	}
-	
+
 	private void executeLateRentalSearch() {
-		//TODO
-		/*DAO<Rental> dao = new DAO<>(factory);
-		Optional<List<Rental>> oList = null;
-		try {
-			oList = dao.readCustomQuery("select r from Rental r where r.returnDate IS NOT NULL", Rental.class);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		DAO.printList(oList);*/
+		// TODO
+		/*
+		 * DAO<Rental> dao = new DAO<>(factory); Optional<List<Rental>> oList = null;
+		 * try { oList =
+		 * dao.readCustomQuery("select r from Rental r where r.returnDate IS NOT NULL",
+		 * Rental.class); } catch (SQLException e) { e.printStackTrace(); }
+		 * DAO.printList(oList);
+		 */
 	}
-	
+
 	private void executeRentalDueTomorrowSearch() {
-		//TODO
-		/*DAO<Rental> dao = new DAO<>(factory);
-		Optional<List<Rental>> oList = null;
-		try {
-			oList = dao.readCustomQuery("select r from Rental r where r.returnDate IS NOT NULL", Rental.class);
-		} catch (SQLException e) {
-			e.printStackTrace();
-		}
-		DAO.printList(oList);*/
+		// TODO
+		/*
+		 * DAO<Rental> dao = new DAO<>(factory); Optional<List<Rental>> oList = null;
+		 * try { oList =
+		 * dao.readCustomQuery("select r from Rental r where r.returnDate IS NOT NULL",
+		 * Rental.class); } catch (SQLException e) { e.printStackTrace(); }
+		 * DAO.printList(oList);
+		 */
 	}
-	
-	
 
 	private void displayFilmManagement() {
 		System.out.println("Film Management: ");
@@ -255,6 +268,22 @@ public class UserInterface {
 					userInput = reader.readLine();
 					executeFilmSearch(userInput);
 					break;
+				case 2:
+					System.out.println("Film Managment-Most Popular Films");
+					executeMostPopularFilms();
+					break;
+				case 3:
+					System.out.println("Film Managment-Most Popular Caetgory");
+					executeMostPopularFilmCategory();
+					break;
+				case 4:
+					System.out.println("Film Managment-Films in Stock");
+					executeFilmsInStock();
+					break;
+				case 5:
+					System.out.println("Film Managment-Films Checked Out");
+					executeFilmsCheckedOut();
+					break;
 				default:
 				}
 			}
@@ -262,17 +291,57 @@ public class UserInterface {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private void executeFilmSearch(String userInput) {
-		//TODO
-		/*DAO<Rental> dao = new DAO<>(factory);
-		Optional<List<Rental>> oList = null;
+		DAO<Film> dao = new DAO<>(factory);
+		Optional<List<Film>> oList = null;
 		try {
-			oList = dao.readCustomQuery("select r from Rental r where r.returnDate IS NOT NULL", Rental.class);
+			oList = dao.readCustomQuery("select f from Film f where f.title LIKE '%" + userInput + "%'", Film.class);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		DAO.printList(oList);*/
+		DAO.printList(oList);
+	}
+
+	private void executeMostPopularFilms() {
+		// TODO
+		/*
+		 * DAO<Rental> dao = new DAO<>(factory); Optional<List<Rental>> oList = null;
+		 * try { oList =
+		 * dao.readCustomQuery("select r from Rental r where r.returnDate IS NOT NULL",
+		 * Rental.class); } catch (SQLException e) { e.printStackTrace(); }
+		 * DAO.printList(oList);
+		 */
+	}
+	private void executeMostPopularFilmCategory() {
+		// TODO
+		/*
+		 * DAO<Rental> dao = new DAO<>(factory); Optional<List<Rental>> oList = null;
+		 * try { oList =
+		 * dao.readCustomQuery("select r from Rental r where r.returnDate IS NOT NULL",
+		 * Rental.class); } catch (SQLException e) { e.printStackTrace(); }
+		 * DAO.printList(oList);
+		 */
+	}
+	private void executeFilmsInStock() {
+		// TODO
+		/*
+		 * DAO<Rental> dao = new DAO<>(factory); Optional<List<Rental>> oList = null;
+		 * try { oList =
+		 * dao.readCustomQuery("select r from Rental r where r.returnDate IS NOT NULL",
+		 * Rental.class); } catch (SQLException e) { e.printStackTrace(); }
+		 * DAO.printList(oList);
+		 */
+	}
+	private void executeFilmsCheckedOut() {
+		// TODO
+		/*
+		 * DAO<Rental> dao = new DAO<>(factory); Optional<List<Rental>> oList = null;
+		 * try { oList =
+		 * dao.readCustomQuery("select r from Rental r where r.returnDate IS NOT NULL",
+		 * Rental.class); } catch (SQLException e) { e.printStackTrace(); }
+		 * DAO.printList(oList);
+		 */
 	}
 
 	private void displayStaffManagement() {
@@ -296,8 +365,9 @@ public class UserInterface {
 					executeHighestEmployee();
 					break;
 				case 3:
-					System.out.println("Staff Managment-Total Store Revenue:");
-					executeTotalStoreRevenue();
+					System.out.println("Staff Managment-Total Store Revenue: Enter Employee/Store ID:");
+					userInput = reader.readLine();
+					executeTotalStoreRevenue(userInput);
 					break;
 				default:
 				}
@@ -306,46 +376,56 @@ public class UserInterface {
 			e.printStackTrace();
 		}
 	}
-	
+
 	private void executeEmployeeSearch(String userInput) {
 		DAO<Staff> dao = new DAO<>(factory);
-		Optional<List<Staff>> oCustomerList = null;
+		Optional<List<Staff>> oList = null;
 		try {
-			oCustomerList = dao.read("FIRST_NAME", userInput, Staff.class);
+			oList = dao.readCustomQuery("select s from Staff s where s.lastName LIKE '%" + userInput + "%'",
+					Staff.class);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		DAO.printList(oCustomerList);
-		
-		oCustomerList = null;;
+		DAO.printList(oList);
+
+		oList = null;
 		try {
-			oCustomerList = dao.read("LAST_NAME", userInput, Staff.class);
+			oList = dao.readCustomQuery("select s from Staff s where s.firstName LIKE '%" + userInput + "%'",
+					Staff.class);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		DAO.printList(oCustomerList);
+		DAO.printList(oList);
 	}
+
 	private void executeHighestEmployee() {
-		//TODO
-		/*DAO<Rental> dao = new DAO<>(factory);
-		Optional<List<Rental>> oList = null;
+		String qlString = "select Max(total) as maximum from (SELECT STAFF_ID, Sum(AMOUNT) AS TOTAL FROM Payment GROUP BY STAFF_ID)";
+		DAO<Payment> dao = new DAO<>(factory);
+		ResultSet resultSet = dao.readSQLQuery(qlString);
 		try {
-			oList = dao.readCustomQuery("select r from Rental r where r.returnDate IS NOT NULL", Rental.class);
+			resultSet.next();
+			Double employeeMaximumEarnings = resultSet.getDouble("maximum");
+			System.out.println("The highest employee earnings was $"+employeeMaximumEarnings);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		DAO.printList(oList);*/
 	}
-	private void executeTotalStoreRevenue() {
-		//TODO
-		/*DAO<Rental> dao = new DAO<>(factory);
-		Optional<List<Rental>> oList = null;
+
+	private void executeTotalStoreRevenue(String userInput) {
+		// Using staffId == StoreId
+		DAO<Payment> dao = new DAO<>(factory);
+		Optional<List<Payment>> oList = null;
 		try {
-			oList = dao.readCustomQuery("select r from Rental r where r.returnDate IS NOT NULL", Rental.class);
+			oList = dao.readCustomQuery("select p from Payment p where p.staffId =" + userInput, Payment.class);
 		} catch (SQLException e) {
 			e.printStackTrace();
 		}
-		DAO.printList(oList);*/
+		List<Payment> paymentList = oList.get();
+		BigDecimal sumTotal = BigDecimal.ZERO;
+		for (Payment payment : paymentList) {
+			sumTotal.add(payment.getAmount());
+		}
+		System.out.println("Total store revenue is: $" + sumTotal.toString());
 	}
 
 	public boolean shouldCont() {

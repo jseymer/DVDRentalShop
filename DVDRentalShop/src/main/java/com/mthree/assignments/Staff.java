@@ -31,6 +31,10 @@ public class Staff {
 	private String password;
 	
 	
+	public Staff() {
+		super();
+
+	}
 	public Staff(long staffId, String firstName, String lastName, long addressId, String email, long storeId,
 			long active, String username, String password) {
 		super();

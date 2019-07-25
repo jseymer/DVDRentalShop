@@ -46,7 +46,7 @@ public class Film {
 	private long languageID;
 
 	@Column(name = "Original_Language_ID")
-	private long originalLanguageID;
+	private Long originalLanguageID;
 
 	/*
 	 * @ManyToMany(mappedBy = "films") 
@@ -163,11 +163,11 @@ public class Film {
 		this.replaceCost = replaceCost;
 	}
 
-	public long getLanguageID() {
+	public Long getLanguageID() {
 		return languageID;
 	}
 
-	public void setLanguageID(long languageID) {
+	public void setLanguageID(Long languageID) {
 		this.languageID = languageID;
 	}
 
